@@ -16,7 +16,10 @@
     }
     
     .container {
+        width:100%;
+        display:flex;
         text-align: center;
+        justify-content: space-evenly;
     }
     #generateBtn{
         margin-top: 300px;
@@ -52,11 +55,15 @@
 <body>
 
 <div class="container">
-    <button id="generateBtn">Generate Random Number</button>
-    <form>
-        <input type="hidden" name="randomNumber" id="randomNumberField">
-        <button id="next"><a href="pbstatement.html">Next</a></button>
-    </form>
+    <div class="image">
+        <img src="mainposter.png" style="height: 100%; width: 100%;">
+    </div>
+   <div class="formBtn"> <button id="generateBtn">Generate Random Number</button>
+        <form id="nextForm" action="pbstatement.html" method="get">
+            <input type="hidden" name="number" id="randomNumberField">
+            <button id="next">Next</button>
+        </form>
+    </div>
 </div><br>
 
 <script>
@@ -67,7 +74,7 @@
 
     // Function to handle button click event
     document.getElementById('generateBtn').addEventListener('click', function() {
-        var randomNumber = getRandomNumber(2411, 2435); // Generate a random number between 1 and 40
+        var randomNumber = getRandomNumber(2411, 2455); // Generate a random number between 1 and 40
         document.getElementById('randomNumberField').value = randomNumber; 
         this.disabled = true; // Disable the button after clicking
         this.classList.add('button-disabled'); // Add CSS class to style the disabled button
@@ -77,6 +84,7 @@
         setTimeout(() => {
             this.textContent = 'Generated: ' + randomNumber; // Update button text with the generated number
         }, 1000); // Delay of 1 second (1000 milliseconds)
+        
     });
 </script>
 </body>
