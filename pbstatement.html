@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flip Cards</title>
+<style>
+  
+    .header{
+      width:101%;
+      height:200px;
+      border:1px solid black;
+      color:white;
+      background-image: url('banner.jpg');
+      display:grid;
+      margin-top: -10px;
+      margin-left: -10px;
+    }
+  
+    .header h1{
+        font-size:60px;
+        margin-top:-50px;
+        
+    }
+    .header p{
+      font-size:30px;
+      margin-top: -40px;
+    }
+    img{
+      justify-content: right;
+    }
+    .card-container {
+
+        width: 101%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        background-image: url('back4.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-top: 0px;
+        margin-left: -10px;
+      }
+      
+      .card-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top:20px;
+      }
+      
+      .card {
+        width: calc(25% - 19px); /* 4 cards per row with some spacing */
+        perspective: 1000px;
+        
+        
+      }
+      
+      .card-inner {
+        width: 100%;
+        height: 200px;
+        transform-style:preserve-3d;
+        transition: transform 0.5s;
+        
+      }
+      
+      .card.flipped .card-inner {
+        transform: rotateY(180deg);
+      }
+      
+      .card-front,
+      .card-back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+      }
+      
+      .card-front {
+        background-image: url('poster.jpg');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border:2px solid black;
+      }
+      
+      .card-back {
+        background-image: url('poster1.jpg');
+        transform: rotateY(180deg);
+        justify-content: center;
+        color:white;
+        border:2px solid black;
+      }
+      h3{
+        text-align: center;
+      }
+      p{
+        text-align: center;
+      }
+      b{
+        font-size: 30px;
+      }
+      /* CSS to freeze the webpage */
+      .freeze {
+         pointer-events: none;
+      }
+      .right{
+        margin-top:-40px;
+      }
+      .right1{
+        margin-left:1200px;
+        margin-top:-160px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .right2{
+        margin-left:1200px;
+        margin-top:-60px;
+        font-size:10px;
+      }
+      .date p{
+        font-size:20px;
+        margin-left:-1200px;
+        margin-top:200px;
+      }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="date">
+    <p style="margin-top:20px;">Date:18-10-24</p>
+    </div>
+    <center>
+    <h1>WEB HACKATHON</h1>
+    <p>Hack the Front End Through Innovation</p>
+    </center>
+  <div class="right">
+    <h3>Organised by Department OF CSE</h3>
+  </div>
+  <div class="right1">
+    <h2>Coordinators</h2>
+  </div>
+  <div class="right2">
+    <p style="font-size:20px;">Smt.D.Priyanka</p><br><br>
+    <p style="font-size:20px;">Smt.Y.Manaswini</p><br>
+  </div>
+</div>
+<div class="sect">
+<div class="card-container">
+  <!-- Row 1 -->
+  <div class="card-row">
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+      <div class="card-inner" >
+        <div class="card-front" ><b>WEB-2411</b></div>
+        <div class="card-back" >
+          <h3>Learning Management System</h3>
+          <p>Create a platform to manage courses, assignments, and assessments for educational institutions, enabling students and teachers to interact efficiently.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2412</b></div>
+          <div class="card-back">
+            <h3>Travel Booking Website</h3>
+            <p> Develop a system that allows users to search, compare, and book flights, hotels, and travel packages.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2413</b></div>
+          <div class="card-back">
+            <h3>Music Streaming Platform</h3>
+            <p> Design an application where users can listen to music online, create playlists, and explore different music genres</p>
+          </div>
+        </div>
+      </div> 
+      <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2414</b></div>
+          <div class="card-back">
+            <h3>Fitness Tracking Interface</h3>
+            <p>  Build an interface for users to track their workouts, calories burned, and monitor their fitness goals over time.</p>
+          </div>
+        </div>
+      </div>
+    <!-- Repeat for 2nd, 3rd, and 4th card in row 1 -->
+  </div>
+  <!-- End of row 1 -->
+  
+  <!-- Row 2 -->
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card"style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2415</b></div>
+          <div class="card-back">
+            <h3>Event Registration Platform</h3>
+            <p>Develop a platform that allows users to register for events, manage ticketing, and provide event details.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2416</b></div>
+            <div class="card-back">
+              <h3>Healthcare Appointment Booking</h3>
+              <p> Create a system where users can book medical appointments online, view doctor availability, and receive appointment reminders.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2417</b></div>
+            <div class="card-back">
+              <h3>Portfolio Website for Developers </h3>
+              <p>Design a platform where developers can showcase their projects, skills, and achievements in a professional portfolio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2418</b></div>
+            <div class="card-back">
+              <h3>Weather Forecast Application</h3>
+              <p>Build a weather forecasting tool that provides real-time weather updates, weekly predictions, and alerts for extreme conditions.</p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <!-- End of row 2 -->
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2419</b></div>
+          <div class="card-back">
+            <h3>Feedback and Survey Form</h3>
+            <p>Create an online platform for generating and analyzing surveys and feedback forms for businesses or educational institutions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2420</b></div>
+            <div class="card-back">
+              <h3>Budgeting and Expense Tracking Tool </h3>
+              <p>Design a tool to help users plan their budgets, track expenses, and provide insights into their spending habits.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2421</b></div>
+            <div class="card-back">
+              <h3>Smart Home Control Dashboard</h3>
+              <p>Develop a dashboard that allows users to monitor and control smart home devices such as lights, security systems, and appliances remotely.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2422</b></div>
+            <div class="card-back">
+              <h3>Online Voting or Polling System</h3>
+              <p>Create a secure online voting platform where users can participate in elections or opinion polls digitally.</p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2423</b></div>
+          <div class="card-back">
+            <h3>Car Rental Booking System</h3>
+            <p> Build a platform for users to rent cars, check vehicle availability, and book rentals based on location and time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2424</b></div>
+            <div class="card-back">
+              <h3>Freelancers Marketplace Platform</h3>
+              <p>Design a system where freelancers can create profiles, find jobs, and connect with potential clients across various industries.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2425</b></div>
+            <div class="card-back">
+              <h3>Educational Quiz Platform</h3>
+              <p>Develop an interactive platform that allows students to participate in quizzes across multiple subjects and compete with peers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2426</b></div>
+            <div class="card-back">
+              <h3>Online Library Catalog</h3>
+              <p>Create an online system where users can search, reserve, and access digital or physical library materials.</p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2427</b></div>
+          <div class="card-back">
+            <h3>Mood Tracker Application </h3>
+            <p> Develop an app to help users track their emotions and moods over time, providing insights into mental health trends.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2428</b></div>
+            <div class="card-back" >
+              <h3>Charity Donation Page </h3>
+              <p> Build a platform where users can donate to various charities, track their donations, and support causes they care about.</p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2429</b></div>
+            <div class="card-back">
+              <h3>Personalized Movie Recommendation</h3>
+              <p>Create an app that suggests movies based on users' viewing history, preferences, and ratings.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2430</b></div>
+            <div class="card-back">
+              <h3>Online Code Editor</h3>
+              <p>Design a web-based code editor that supports multiple programming languages and enables real-time collaboration on coding projects.</p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-row">
+    <div class="card"style="margin-left: 4px;" onclick="flipCard(this)">
+      <div class="card-inner" >
+        <div class="card-front" ><b>WEB-2431</b></div>
+        <div class="card-back" >
+          <h3>Interactive Storytelling Platform</h3>
+          <p>Develop a platform where users can create, share, and interact with stories, choosing different plot outcomes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2432</b></div>
+          <div class="card-back">
+            <h3>Simple Calendar App</h3>
+            <p>Build a minimalistic calendar app where users can add events, set reminders, and organize their schedules.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2433</b></div>
+          <div class="card-back">
+            <h3>Countdown to a Holiday App</h3>
+            <p>Create an app that counts down to upcoming holidays, allowing users to track time remaining and plan their celebrations.</p>
+          </div>
+        </div>
+      </div> 
+      <div class="card" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2434</b></div>
+          <div class="card-back">
+            <h3>Simple Chat Application</h3>
+            <p>Develop a basic chat platform that enables users to send messages in real-time, supporting one-on-one and group conversations.</p>
+          </div>
+        </div>
+      </div>
+    <!-- Repeat for 2nd, 3rd, and 4th card in row 1 -->
+  </div>
+  <div class="card-row">
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+      <div class="card-inner" >
+        <div class="card-front" ><b>WEB-2435</b></div>
+        <div class="card-back" >
+          <h3>Daily Inspirational Image</h3>
+          <p>Create an app that displays a new inspirational image or quote every day to motivate users.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front"><b>WEB-2436</b></div>
+        <div class="card-back">
+          <h3>Sports Equipment Management System</h3>
+          <p>A web app for tracking sports equipment usage, availability, and maintenance schedules across all sports facilities like cricket, football, handball, etc.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front"><b>WEB-2437</b></div>
+        <div class="card-back">
+          <h3>Gym Attendance and Workout Tracker
+          </h3>
+          <p>A digital system to monitor student attendance in the gym and track individual workout routines or achievements, offering personalized feedback and suggestions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front"><b>WEB-2438</b></div>
+        <div class="card-back">
+          <h3>Bus Tracking System
+          </h3>
+          <p>A Bus Tracking System using mobile technology (similar to Uber or Rapido) would involve tracking the location of buses in real time, allowing students and staff to view the live location of buses, their expected arrival times, and route details.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat for 2nd, 3rd, and 4th card in row 1 -->
+  </div>
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2439</b></div>
+          <div class="card-back">
+            <h3>E-Health Monitoring for e-Clinic
+            </h3>
+            <p> A medical portal for students to book appointments with Nursing or doctor avalibility, receive digital prescriptions, and maintain a personal health record. It can also track the schedule of the clinic’s operational hours.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2440</b></div>
+            <div class="card-back">
+              <h3>Hostel Maintenance Request System
+              </h3>
+              <p>An online platform where students can submit hostel maintenance requests (for water issues, internet, electricity, etc.) and track the resolution status of these requests.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2441</b></div>
+            <div class="card-back">
+              <h3>Canteen and Food Ordering System
+              </h3>
+              <p>An app or web-based platform that allows students to pre-order meals from the canteen or fast-food center, helping manage rush hours and reduce wait times.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2442</b></div>
+            <div class="card-back">
+              <h3>Student Feedback and Issue Reporting App
+              </h3>
+              <p>A system where students can provide feedback on hostel conditions, food quality, campus facilities, and academic experiences. Administrators can respond and track resolution statuses.
+              </p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2443</b></div>
+          <div class="card-back">
+            <h3>Alumni Networking Platform
+            </h3>
+            <p> A web-based platform to connect current students with alumni for mentorship, career guidance, and collaborative projects, strengthening the relationship between past and present students.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2444</b></div>
+            <div class="card-back">
+              <h3>E-Learning and Online Course Management System
+              </h3>
+              <p>A digital platform that supports e-learning by providing online course materials, assignments, and video lectures, along with the ability to track student progress and performance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2445</b></div>
+            <div class="card-back">
+              <h3>Virtual Labs for Practical Learning
+              </h3>
+              <p>An online platform offering virtual labs for science and engineering students, enabling them to simulate experiments and practicals from anywhere without requiring access to physical labs.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2446</b></div>
+            <div class="card-back">
+              <h3>Campus Lost and Found Management System
+              </h3>
+              <p>A digital solution for managing lost and found items across the campus, where students can report lost items or check if any found items match their descriptions.
+              </p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-row">
+    <!-- Repeat for 1st, 2nd, 3rd, and 4th card in row 2 -->
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+        <div class="card-inner">
+          <div class="card-front"><b>WEB-2447</b></div>
+          <div class="card-back">
+            <h3>Sustainability and Environmental Awareness App
+            </h3>
+            <p>A mobile app that promotes environmental initiatives on campus, allowing students to report energy or water wastage, track the institution’s sustainability goals, and participate in green campaigns.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2448</b></div>
+            <div class="card-back">
+              <h3>Digital Notice Board and Event Announcements
+              </h3>
+              <p>A digital platform that replaces physical notice boards by providing real-time announcements for events, seminars, or deadlines, allowing students to stay updated with important campus information.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2449</b></div>
+            <div class="card-back">
+              <h3>Campus Wi-Fi Connectivity Troubleshooting App</h3>
+              <p>A mobile app for reporting and diagnosing Wi-Fi issues across campus. Students can log connectivity issues, view the status of network repairs, and get notifications of planned maintenance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+          <div class="card-inner">
+            <div class="card-front"><b>WEB-2450</b></div>
+            <div class="card-back">
+              <h3>Digital Resource Sharing Platform
+              </h3>
+              <p>A collaborative platform where students and faculty can share academic resources, including lecture notes, research papers, project reports, and multimedia materials, fostering a shared learning experience.
+              </p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="card-row">
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+      <div class="card-inner" >
+        <div class="card-front" ><b>WEB-2451</b></div>
+        <div class="card-back" >
+          <h3>Eco-Friendly Carpooling and Ride-Sharing App
+          </h3>
+          <p>A mobile app that encourages carpooling among students and staff commuting to campus from nearby towns and cities. It helps reduce transportation costs and carbon emissions by matching users with similar routes.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front"><b>WEB-2452</b></div>
+        <div class="card-back">
+          <h3>Online Exam Preparation Platform
+          </h3>
+          <p>A platform that helps students prepare for exams by offering practice tests, quizzes, and revision materials based on past exam papers and common curriculum topics. The system tracks progress and suggests areas that need more focus.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front"><b>WEB-2453</b></div>
+        <div class="card-back">
+          <h3>Campus Language Learning App
+          </h3>
+          <p>A mobile app that helps students learn new languages, offering courses in popular languages like English, Spanish, or French. The app includes interactive lessons, quizzes, and the ability to practice with other learners on campus.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-front"><b>WEB-2454</b></div>
+        <div class="card-back">
+          <h3>Digital Complaint and Grievance Redressal System
+          </h3>
+          <p>A digital platform where students and staff can submit complaints or grievances about campus services (e.g., hostel, canteen, or facilities). The system tracks the progress of each complaint and ensures timely resolution.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat for 2nd, 3rd, and 4th card in row 1 -->
+  </div>
+  <div class="card-row">
+    <div class="card" style="margin-left: 4px;" onclick="flipCard(this)">
+      <div class="card-inner" >
+        <div class="card-front" ><b>WEB-2455</b></div>
+        <div class="card-back" >
+          <h3>Students Check-in and Check-out Management System for Hostel
+          </h3>
+          <p>Design a Hostel Check-in/Check-out Management System for AITAM to streamline tracking students' hostel movements, ensuring security, maintaining accurate records, and providing real-time updates on occupancy.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- Repeat similar structure for 3 more rows -->
+</div>
+</div>
+<script>
+  function flipCard(card)
+  {
+    card.classList.toggle('flipped');
+  }
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      // Add a class to freeze the webpage
+      document.body.classList.add('freeze');
+    });
+  });
+    
+    
+</script>
+</body>
+</html>
